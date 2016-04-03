@@ -2,27 +2,23 @@
 TITLE iServer Beta Build #13
 echo [INFO] Starting Server on 127.0.0.1:19132
 echo [INFO] Loading assets...
-ping 192.0.2.2 -n 1 -w 5000 > nul
+ping 192.0.2.2 -n 5 > nul
 echo [NOTICE] Level saving not yet implented. Neither is player data saving, closing the server delets everything.
-if exist config\server.motd (
-	echo [INFO] Loading MOTD files...
+if exist server.conf (
+	echo [INFO] Loading server.conf files...
 	
 ) else (
-	echo [CRITICAL] MOTD not found, generating new key...
-	
-	> server.motd
+	echo [CRITICAL] server.conf not found, generating new key...> server.motd
 )
-if exist config\join.msg (
-	echo [INFO] Loading join message...
+if exist proxySetup.conf (
+	echo [INFO] Loading proxySetup.conf message...
 	
 ) else (
-	echo [CRITICAL] No join message found, generating new key...
-	
-	> join.msg
+	echo [CRITICAL] proxySetup.conf not found, generating new key...> join.msg
 )
 echo [INFO] Loading plugins...
 
-if exist $task (
+if exist task.sci (
 	echo [INFO] Loading packaged task file...
 	
 ) else (
@@ -32,9 +28,7 @@ if exist $task (
 echo [INFO] Loading plugins...
 
 echo ----------[ Addon Manager ]-----------
-echo {NOTICE} Only official addons
-echo work at the moment!
-echo --------------------------------------
+echo Loading addons...
 if exist addons\MCPETransfer.jfs (
 	if exist addons\patches\mct.patch (
 		echo [MCPETransfer] MCPETransfer loaded and ready!
@@ -44,11 +38,19 @@ if exist addons\MCPETransfer.jfs (
 )
 	
 ) else (
-	echo [***] No addons to load! [***]
+	echo No addons to load!
 )
-echo [THREAD] Server open for buisness on localhost:19132
+echo ----------[ Addon Manager ]-----------
+echo [THREAD] Preparing to load external process
+ping 9.0.9.0 -n 2 > nul
+cd ..
+cd ..
+cd ..
+start bin\x\j\start.cmd -t "iServer - MCPE Server Software"
+ping 1.2.3.4:0978 -n 10 > nul
+exit
 goto :loop
-ping 192.0.2.2 -n 1 -w 600000 > nul
+ping 192.0.2.2 -n 1 -w 3 > nul
 :loop
 
 goto :loop
