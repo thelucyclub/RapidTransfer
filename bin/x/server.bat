@@ -3,7 +3,7 @@ TITLE iServer Beta Build #13
 echo [INFO] Starting Server on 127.0.0.1:19132
 echo [INFO] Loading assets...
 ping 192.0.2.2 -n 1 -w 5000 > nul
-call :colorEcho 0b [NOTICE] Level saving not yet implented. Neither is player data saving, closing the server delets everything.
+echo [NOTICE] Level saving not yet implented. Neither is player data saving, closing the server delets everything.
 if exist config\server.motd (
 	echo [INFO] Loading MOTD files...
 	
