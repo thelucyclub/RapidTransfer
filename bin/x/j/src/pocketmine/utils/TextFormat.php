@@ -25,31 +25,31 @@ namespace pocketmine\utils;
  * Class used to handle Minecraft chat format, and convert it to other formats like ANSI or HTML
  */
 abstract class TextFormat{
-	const ESCAPE = ""; //§
+	const ESCAPE = "\xc2\xa7"; //§
 	
-	const BLACK = TextFormat::ESCAPE . "";
-	const DARK_BLUE = TextFormat::ESCAPE . "";
-	const DARK_GREEN = TextFormat::ESCAPE . "";
-	const DARK_AQUA = TextFormat::ESCAPE . "";
-	const DARK_RED = TextFormat::ESCAPE . "";
-	const DARK_PURPLE = TextFormat::ESCAPE . "";
-	const GOLD = TextFormat::ESCAPE . "";
-	const GRAY = TextFormat::ESCAPE . "";
-	const DARK_GRAY = TextFormat::ESCAPE . "";
-	const BLUE = TextFormat::ESCAPE . "";
-	const GREEN = TextFormat::ESCAPE . "";
-	const AQUA = TextFormat::ESCAPE . "";
-	const RED = TextFormat::ESCAPE . "";
-	const LIGHT_PURPLE = TextFormat::ESCAPE . "";
-	const YELLOW = TextFormat::ESCAPE . "";
-	const WHITE = TextFormat::ESCAPE . "";
+	const BLACK = TextFormat::ESCAPE . "0";
+	const DARK_BLUE = TextFormat::ESCAPE . "1";
+	const DARK_GREEN = TextFormat::ESCAPE . "2";
+	const DARK_AQUA = TextFormat::ESCAPE . "3";
+	const DARK_RED = TextFormat::ESCAPE . "4";
+	const DARK_PURPLE = TextFormat::ESCAPE . "5";
+	const GOLD = TextFormat::ESCAPE . "6";
+	const GRAY = TextFormat::ESCAPE . "7";
+	const DARK_GRAY = TextFormat::ESCAPE . "8";
+	const BLUE = TextFormat::ESCAPE . "9";
+	const GREEN = TextFormat::ESCAPE . "a";
+	const AQUA = TextFormat::ESCAPE . "b";
+	const RED = TextFormat::ESCAPE . "c";
+	const LIGHT_PURPLE = TextFormat::ESCAPE . "d";
+	const YELLOW = TextFormat::ESCAPE . "e";
+	const WHITE = TextFormat::ESCAPE . "f";
 
-	const OBFUSCATED = TextFormat::ESCAPE . "";
+	const OBFUSCATED = TextFormat::ESCAPE . "k";
 	const BOLD = TextFormat::ESCAPE . "l";
-	const STRIKETHROUGH = TextFormat::ESCAPE . "";
-	const UNDERLINE = TextFormat::ESCAPE . "";
-	const ITALIC = TextFormat::ESCAPE . "";
-	const RESET = TextFormat::ESCAPE . "";
+	const STRIKETHROUGH = TextFormat::ESCAPE . "m";
+	const UNDERLINE = TextFormat::ESCAPE . "n";
+	const ITALIC = TextFormat::ESCAPE . "o";
+	const RESET = TextFormat::ESCAPE . "r";
 
 	/**
 	 * Splits the string by Format tokens
