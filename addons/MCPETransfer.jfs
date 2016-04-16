@@ -16,3 +16,9 @@ echo [MCPETransfer] "get(function->clientName)" is about to be redirected
 echo [MCPETransfer] An error ocurred during the transfer process
 echo bootstrapProcess error at line 6 of officialaddons\.src\mcpetransfer.transferprocess.txt
 )
+&static publicBootstrap.getInstance(
+  render client.disconnect as %G
+  render client.connect ad %F
+  render CLOSE
+)
+{end.closeFile}
