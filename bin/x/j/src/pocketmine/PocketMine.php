@@ -76,7 +76,7 @@ namespace pocketmine {
 	const API_VERSION = "2.0.0";
 	const CODENAME = "Ikaros";
 	const MINECRAFT_VERSION = "iServer v1.0.24.6";
-	const MINECRAFT_VERSION_NETWORK = "0.14.0.0";
+	const MINECRAFT_VERSION_NETWORK = "0.14.1";
 	const GENISYS_API_VERSION = '1.7.2';
 
 	/*
@@ -459,9 +459,9 @@ namespace pocketmine {
 		$lang = $inst->getDefaultLang();
 	}
 
-	/*if(\Phar::running(true) === ""){
-		$logger->warning("Non-packaged PocketMine-MP installation detected, do not use on production.");
-	}*/
+	if(\Phar::running(true) === ""){
+		echo("****  Non-packaged iServer installation detected. Do not use on production.  ****\n");
+	}
 
 	ThreadManager::init();
 	$server = new Server($autoloader, $logger, \pocketmine\PATH, \pocketmine\DATA, \pocketmine\PLUGIN_PATH, $lang);
@@ -479,10 +479,10 @@ namespace pocketmine {
 	$logger->shutdown();
 	$logger->join();
 
-	echo "Server has stopped" . Terminal::$FORMAT_RESET . "\n";
+	echo "****  The server has been shutdown *****" . Terminal::$FORMAT_RESET . "\n";
 
 	@kill(getmypid());
 
-	exit(0);
+	exit(239);
 
 }
