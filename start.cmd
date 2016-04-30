@@ -1,1 +1,0 @@
-start "" bin\mintty.exe -o Columns=88 -o Rows=32 -o AllowBlinking=0 -o FontQuality=30 -o Font="Comic Sans" -o FontHeight=20 -o CursorType=1 -o CursorBlinks=0 -h error -t "iServer Build #13" -w max bin\x\server.bat

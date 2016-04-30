@@ -41,16 +41,21 @@ if exist addons\MCPETransfer.jfs (
 	echo No addons to load!
 )
 echo ----------[ Addon Manager ]-----------
-echo [THREAD] Preparing to load external process
-ping 9.0.9.0 -n 2 > nul
-cd ..
-cd ..
-cd ..
-start bin\x\j\start.cmd -t "iServer - MCPE Server Software"
-ping 1.2.3.4:0978 -n 10 > nul
-exit
+echo [THREAD] ThreadWork Finished!
 goto :loop
-ping 192.0.2.2 -n 1 -w 3 > nul
 :loop
-
+set /p CMD="> "
+if %CMD% == help (
+echo --- Command Help ---
+echo help - Shows a list of commands.
+echo sudo - Initiates 'sudo' mode [EXPIERIMENTAL]
+echo [NOTICE] Commands have not yet been implented!
+) else if %CMD% == sudo (
+echo [ALERT] Attempting to 'sudo' a command // Doesn't seem to be working.
+type /p SUDO_CMD="$ "
+ping 127.8.0.1 -n 1>nul
+%SUDO_CMD%
+) else (
+echo [INFO] Failed to execute command
+)
 goto :loop
