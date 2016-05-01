@@ -1,12 +1,4 @@
 @echo off
-if not exist data\server\wizard (
-echo.
-echo                          Welcome to iServer!
-echo                 Website: https://github.com/iServer-Project
-echo.
-echo.
-goto :setup
-)
 TITLE iServer Beta Build #13
 echo [INFO] Starting Server on 127.0.0.1:19132
 echo [INFO] Loading assets...
@@ -51,41 +43,19 @@ if exist addons\MCPETransfer.jfs (
 echo ----------[ Addon Manager ]-----------
 echo [THREAD] ThreadWork Finished!
 goto :loop
-goto :loop2
 :loop
 set /p CMD="> "
-if %CMD% == "help" (
-echo [INFO] Commands are not implented yet!
+if %CMD% == help (
+echo --- Command Help ---
+echo help - Shows a list of commands.
+echo sudo - Initiates 'sudo' mode [EXPIERIMENTAL]
+echo [NOTICE] Commands have not yet been implented!
+) else if %CMD% == sudo (
+echo [ALERT] Attempting to 'sudo' a command // Doesn't seem to be working.
+type /p SUDO_CMD="$ "
+ping 127.8.0.1 -n 1>nul
+%SUDO_CMD%
+) else (
+echo [INFO] Failed to execute command
 )
 goto :loop
-:loop2
-set %memory% == %random% / 20
-cd data
-cd server
-type 2 == %RAM%
-TITLE iServer [1 THREADS][%memory% / %RAM%]
-ping 9.8.7.6:9076 -n 2.0%random%>nul
-:setup
-echo Welcome to iServer!
-echo There will be a quick set-up wizard. Would you like to skip it? [y/N]
-set /p tmp=""
-if %tmp% == "y" (
-cd data
-cd server
-echo ~!@#$%^&*()_+{}|:"<>?`1234567890-=[]\;',./qwertyuiopasdfghjklzxcvbnm > WIZARD
-echo %SKIP_WIZARD%==TRUE >> WIZARD
-exit
-)
-echo [*] What is the maximum amount of players aloud? [20]
-set /p tmp=""
-if %tmp% == "" (
-set %tmp% == "20"
-echo %tmp% > 1
-)
-echo [*] RAM is the max amount of memory iServer will use. What value would you like to assign to RAM? [128]
-set /p tmp=""
-if %tmp% == "" (
-set %tmp% == "128"
-echo %tmp% > 2
-)
-)

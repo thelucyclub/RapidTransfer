@@ -6,25 +6,23 @@ echo LOADING SRC\PROXY\MAIN.SCI
 echo LOADING SRC\PROXY\TASKLISTENER\MAIN.SCI
 ping 9.9.9.9 -n 3>nul
 echo LOADING SOURCES...
-ping 6.7.8.9 -n 2>nul
+ping 6.7.8.9 -n 1>nul
 echo DONE!
 echo.
+if exist HOST_1 (
+echo Loading hosts...
+) else (
 echo PLEASE SET UP HOSTS
-echo Host1
-set /p HOST1_IP=IP:
-set /p HOST1_PORT=Port:
-echo Host2
-set /p HOST2_IP=IP:
-set /p HOST2_PORT=Port:
-echo Host3
-set /p HOST3_IP=IP:
-set /p HOST3_PORT=Port:
-echo Host4
-set /p HOST4_IP=IP:
-set /p HOST4_PORT=Port:
-echo Host5
-set /p HOST5_IP=IP:
-set /p HOST5_PORT=Port:
+type /p HOST1_IP="Host 1 IP: "
+type /p HOST1_PORT="Host 1 Port: "
+type /p HOST2_IP="Host 2 IP: "
+type /p HOST2_PORT="Host 2 Port: "
+type /p HOST3_IP="Host 3 IP: "
+type /p HOST3_PORT="Host 3 Port: "
+type /p HOST4_IP="Host 4 IP: "
+type /p HOST4_PORT="Host 4 Port: "
+type /p HOST5_IP="Host 5 IP: "
+type /p HOST5_PORT="Host 5 Port: "
 echo ALL LOCATIONS:
 echo "%HOST1_IP%:%HOST1_PORT%"
 echo "%HOST2_IP%:%HOST2_PORT%"
@@ -33,16 +31,18 @@ echo "%HOST4_IP%:%HOST4_PORT%"
 echo "%HOST5_IP%:%HOST5_PORT%"
 echo.
 echo Writing all data to files...
-cd data
-cd proxy
+if exist data\ (
+) else (
+echo Creating directory...
+mkdir data
+)
 echo %HOST1_IP%:%HOST1_PORT%>HOST_1
 echo %HOST2_IP%:%HOST2_PORT%>HOST_2
 echo %HOST3_IP%:%HOST3_PORT%>HOST_3
 echo %HOST4_IP%:%HOST4_PORT%>HOST_4
 echo %HOST5_IP%:%HOST5_PORT%>HOST_5
-cd ..
-cd ..
 echo.
+)
 echo Checking hosts...
 echo.
 echo Checking 1...
