@@ -2,16 +2,15 @@
 if not exist data\server\wizard (
 echo.
 echo                          Welcome to iServer!
-echo                 Website: https://github.com/iServer-Project
+echo               Website: https://github.com/iServer-Project
 echo.
 echo.
-goto :setup
+#goto :setup
 )
 TITLE iServer Beta Build #13
 echo [INFO] Starting Server on 127.0.0.1:19132
 echo [INFO] Loading assets...
 ping 192.0.2.2 -n 5 > nul
-echo [NOTICE] Level saving not yet implented. Neither is player data saving, closing the server delets everything.
 if exist server.conf (
 	echo [INFO] Loading server.conf files...
 	
@@ -65,7 +64,7 @@ cd server
 type 2 == %RAM%
 TITLE iServer [1 THREADS][%memory% / %RAM%]
 ping 9.8.7.6:9076 -n 2.0%random%>nul
-:setup
+#:setup
 echo Welcome to iServer!
 echo There will be a quick set-up wizard. Would you like to skip it? [y/N]
 set /p tmp=""
