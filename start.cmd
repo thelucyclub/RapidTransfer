@@ -1,1 +1,1 @@
-start "" bin\mintty.exe -o Columns=88 -o Rows=32 -o AllowBlinking=0 -o FontQuality=3 -o Font="DejaVu Sans Mono" -o FontHeight=10 -o CursorType=2 -o CursorBlinks=0 -h error -t "iServer Debug Console" -w max src\proxy.exe --enable-ansi %*
+start "" bin\mintty.exe -o Columns=88 -o Rows=32 -o AllowBlinking=0 -o FontQuality=3 -o Font="DejaVu Sans Mono" -o FontHeight=10 -o CursorType=2 -o CursorBlinks=0 -h error -t "Rapid Transfer Console" -w max src\proxy.exe --enable-ansi %*
